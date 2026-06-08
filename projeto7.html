@@ -1,42 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relógio Digital</title>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: black;
-            color: white;
-            height: 100vh;
-            /* Centralização total */
-            display: flex;
-            align-items: center;
-            justify-content: center
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relógio Digital</title>
 
-        #relogio {
-            font-size: 4em;
-            padding: 20px 40px;
-            border: 2px solid #0f0;
-            border-radius: 8px;
-        }
-    </style>
-</head>x
+<style>
+
+/* ===== FUNDO ===== */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: radial-gradient(circle, #111, #000);
+    color: #00ff88;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* ===== BOTÃO VOLTAR ===== */
+.voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    background: #1976d2;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.voltar:hover {
+    background: #0d47a1;
+    transform: scale(1.05);
+}
+
+/* ===== RELÓGIO ===== */
+#relogio {
+    font-size: 5vw;
+    padding: 25px 50px;
+    border: 2px solid #00ff88;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #00ff88;
+    letter-spacing: 2px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+    #relogio {
+        font-size: 3em;
+        padding: 20px;
+    }
+}
+
+</style>
+</head>
+
 <body>
-    <div id="relogio"></div>
 
-    <script>
-        var relogio = document.getElementById("relogio")
+<!-- BOTÃO VOLTAR -->
+<button class="voltar" onclick="voltar()">⬅ Voltar</button>
 
-        function atualizarRelogio(){
-            var agora = new Date()
-            relogio.innerText = agora.toLocaleTimeString()
-        }
+<div id="relogio"></div>
 
-        atualizarRelogio()
-        setInterval(atualizarRelogio, 1000)
-    </script>
+<script>
+
+function voltar() {
+    window.location.href = "portifolio.html";
+}
+
+var relogio = document.getElementById("relogio");
+
+function atualizarRelogio() {
+    var agora = new Date();
+    relogio.innerText = agora.toLocaleTimeString();
+}
+
+atualizarRelogio();
+setInterval(atualizarRelogio, 1000);
+
+</script>
+
 </body>
 </html>

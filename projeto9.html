@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora Simples</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#1e1e1e;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.calculadora{
+    background:#2c2c2c;
+    width:350px;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.4);
+    text-align:center;
+}
+
+h2{
+    color:white;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-bottom:10px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+}
+
+.botoes{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-top:10px;
+}
+
+button{
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    color:white;
+    font-size:18px;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.03);
+}
+
+#somar{
+    background:#4caf50;
+}
+
+#subtrair{
+    background:#f44336;
+}
+
+#multiplicar{
+    background:#ff9800;
+}
+
+#dividir{
+    background:#2196f3;
+}
+
+#resultado{
+    margin-top:20px;
+    font-size:28px;
+    font-weight:bold;
+    color:#4caf50;
+}
+
+.limpar{
+    background:#607d8b;
+    width:100%;
+    margin-top:15px;
+}
+
+.voltar{
+    background:#9c27b0;
+    width:100%;
+    margin-top:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="calculadora">
+
+    <h2> Calculadora</h2>
+
+    <input id="n1" type="number" placeholder="Primeiro número">
+
+    <input id="n2" type="number" placeholder="Segundo número">
+
+    <div class="botoes">
+
+        <button id="somar">+</button>
+
+        <button id="subtrair">−</button>
+
+        <button id="multiplicar">×</button>
+
+        <button id="dividir">÷</button>
+
+    </div>
+
+    <p id="resultado">0</p>
+
+    <button class="limpar" onclick="limpar()">
+        Limpar
+    </button>
+
+    <button class="voltar" onclick="voltar()">
+        ⬅ Voltar
+    </button>
+
+</div>
+
+<script>
+
+const n1 = document.getElementById("n1");
+const n2 = document.getElementById("n2");
+const resultado = document.getElementById("resultado");
+
+// SOMA
+document.getElementById("somar").addEventListener("click", () => {
+
+    resultado.innerText =
+        Number(n1.value) + Number(n2.value);
+
+});
+
+// SUBTRAÇÃO
+document.getElementById("subtrair").addEventListener("click", () => {
+
+    resultado.innerText =
+        Number(n1.value) - Number(n2.value);
+
+});
+
+// MULTIPLICAÇÃO
+document.getElementById("multiplicar").addEventListener("click", () => {
+
+    resultado.innerText =
+        Number(n1.value) * Number(n2.value);
+
+});
+
+// DIVISÃO
+document.getElementById("dividir").addEventListener("click", () => {
+
+    if(Number(n2.value) === 0){
+
+        resultado.innerText =
+            "Não é possível dividir por 0";
+
+    }else{
+
+        resultado.innerText =
+            Number(n1.value) / Number(n2.value);
+
+    }
+
+});
+
+// LIMPAR
+function limpar(){
+
+    n1.value = "";
+    n2.value = "";
+
+    resultado.innerText = "0";
+}
+
+// VOLTAR
+function voltar(){
+
+    window.location.href = "portifolio.html";
+}
+
+</script>
+
+</body>
+</html>

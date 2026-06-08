@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seleção de Cursos</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#1976d2,#42a5f5);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    background:white;
+    width:90%;
+    max-width:450px;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+h1{
+    margin-bottom:20px;
+    color:#1976d2;
+}
+
+select{
+    width:100%;
+    padding:12px;
+    border:2px solid #1976d2;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    outline:none;
+}
+
+#resultado-selecao{
+    margin-top:20px;
+    padding:15px;
+    border-radius:10px;
+    background:#e3f2fd;
+    font-weight:bold;
+    color:#0d47a1;
+}
+
+.botoes{
+    margin-top:20px;
+}
+
+button{
+    padding:10px 15px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    color:white;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.voltar{
+    background:#ff9800;
+}
+
+.voltar:hover{
+    background:#f57c00;
+    transform:scale(1.05);
+}
+
+.limpar{
+    background:#e53935;
+}
+
+.limpar:hover{
+    background:#c62828;
+    transform:scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Escolha seu Curso</h1>
+
+    <select id="selecao-curso" onchange="mudarSelecao()">
+        <option value="" disabled selected>Selecione um curso</option>
+        <option value="Front-End">Front-End</option>
+        <option value="Back-End">Back-End</option>
+        <option value="Full-Stack">Full-Stack</option>
+    </select>
+
+    <p id="resultado-selecao">
+        Nenhum curso selecionado
+    </p>
+
+    <div class="botoes">
+        <button class="voltar" onclick="voltar()">
+            ⬅ Voltar
+        </button>
+
+        <button class="limpar" onclick="limparSelecao()">
+            Limpar
+        </button>
+    </div>
+
+</div>
+
+<script>
+
+const selecionado = document.getElementById("selecao-curso");
+const resultado = document.getElementById("resultado-selecao");
+
+function mudarSelecao() {
+    resultado.innerText =
+        `Você selecionou o curso de ${selecionado.value}`;
+}
+
+function limparSelecao() {
+    selecionado.selectedIndex = 0;
+    resultado.innerText = "Nenhum curso selecionado";
+}
+
+function voltar() {
+    window.location.href = "portifolio.html";
+}
+
+</script>
+
+</body>
+</html>

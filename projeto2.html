@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alterar Texto com DOM</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.container {
+    background-color: white;
+    width: 350px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+h1 {
+    color: #1976d2;
+}
+
+.p1 {
+    font-size: 20px;
+    margin: 20px 0;
+    color: #333;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    margin: 5px;
+}
+
+.alterar {
+    background-color: #1976d2;
+}
+
+.resetar {
+    background-color: #e53935;
+}
+
+.voltar {
+    background-color: #ff9800;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Alterar Texto</h1>
+
+    <p class="p1">Texto Original</p>
+
+    <input
+        type="text"
+        id="texto"
+        placeholder="Digite um novo texto"
+    >
+
+    <br>
+
+    <button class="alterar" onclick="alterarTexto()">
+        Alterar
+    </button>
+
+    <button class="resetar" onclick="resetar()">
+        Resetar
+    </button>
+
+    <button class="voltar" onclick="voltar()">
+        Voltar
+    </button>
+
+</div>
+
+<script>
+
+function alterarTexto() {
+    const novoTexto = document.getElementById("texto").value;
+
+    if (novoTexto.trim() !== "") {
+        document.querySelector(".p1").innerText = novoTexto;
+    }
+}
+
+function resetar() {
+    document.querySelector(".p1").innerText = "Texto Original";
+    document.getElementById("texto").value = "";
+}
+
+function voltar() {
+    window.location.href = "portifolio.html";
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contador</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+    width:300px;
+}
+
+h1{
+    color:#1976d2;
+}
+
+#contador{
+    font-size:3rem;
+    margin:20px 0;
+    font-weight:bold;
+}
+
+.botoes{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+button{
+    border:none;
+    padding:10px 15px;
+    border-radius:5px;
+    color:white;
+    cursor:pointer;
+}
+
+#mais{
+    background:#4caf50;
+}
+
+#menos{
+    background:#e53935;
+}
+
+#reset{
+    background:#ff9800;
+}
+
+#voltar{
+    background:#1976d2;
+    margin-top:15px;
+}
+
+#mensagem{
+    margin-top:15px;
+    font-weight:bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Contador</h1>
+
+    <div id="contador">0</div>
+
+    <div class="botoes">
+        <button id="mais">+</button>
+        <button id="menos">-</button>
+        <button id="reset">Reset</button>
+    </div>
+
+    <p id="mensagem"></p>
+
+    <button id="voltar" onclick="voltar()">
+        ⬅ Voltar
+    </button>
+
+</div>
+
+<script>
+
+let contador = 0;
+
+const contagem = document.getElementById("contador");
+const mensagem = document.getElementById("mensagem");
+
+document.getElementById("mais")
+.addEventListener("click", aumentar);
+
+document.getElementById("menos")
+.addEventListener("click", diminuir);
+
+document.getElementById("reset")
+.addEventListener("click", resetar);
+
+function atualizarCor(){
+
+    if(contador >= 8){
+        contagem.style.color = "green";
+    }
+    else if(contador <= 2){
+        contagem.style.color = "red";
+    }
+    else{
+        contagem.style.color = "#333";
+    }
+
+}
+
+function aumentar(){
+
+    if(contador < 10){
+        contador++;
+        contagem.innerText = contador;
+        mensagem.innerText = "";
+    }
+    else{
+        mensagem.innerText = "Valor máximo atingido!";
+    }
+
+    atualizarCor();
+}
+
+function diminuir(){
+
+    if(contador > 0){
+        contador--;
+        contagem.innerText = contador;
+        mensagem.innerText = "";
+    }
+    else{
+        mensagem.innerText = "Valor mínimo atingido!";
+    }
+
+    atualizarCor();
+}
+
+function resetar(){
+    contador = 0;
+    contagem.innerText = contador;
+    mensagem.innerText = "";
+    atualizarCor();
+}
+
+function voltar(){
+    window.location.href = "portifolio.html";
+}
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOM Interativo</title>
+
+<style>
+body {
+    font-family: Arial;
+    text-align: center;
+    background: #f0f0f0;
+}
+
+h1, h2 {
+    transition: 0.3s;
+}
+
+#div1 {
+    border: 5px solid black;
+    padding: 16px;
+    width: 220px;
+    height: 200px;
+    margin: 20px auto;
+    background-color: aqua;
+    border-radius: 10px;
+}
+
+button {
+    padding: 10px;
+    margin: 8px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background: #1976d2;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: #0d47a1;
+}
+
+input {
+    padding: 8px;
+    margin: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- VOLTAR -->
+<button onclick="voltar()">⬅ Voltar</button>
+
+<h1 id="titulo1">Modelo de Documento de Objeto</h1>
+<h2 id="titulo2">Elementos do DOM</h2>
+
+<!-- CONTROLES -->
+<div>
+    <h3>Estilizar Títulos</h3>
+
+    <input id="h1Size" placeholder="H1 tamanho (ex: 40px)">
+    <input id="h1Color" placeholder="H1 cor (red, blue...)">
+
+    <input id="h2Size" placeholder="H2 tamanho">
+    <input id="h2Color" placeholder="H2 cor">
+
+    <br>
+
+    <button onclick="estilo1()">Aplicar Estilo</button>
+    <button onclick="resetar()">Resetar</button>
+</div>
+
+<script>
+
+// VOLTAR PARA PORTFÓLIO
+function voltar() {
+    window.location.href = "portifolio.html";
+}
+
+// ESTILIZAR TÍTULOS (SEM PROMPT)
+function estilo1() {
+
+    const h1Size = document.getElementById("h1Size").value;
+    const h1Color = document.getElementById("h1Color").value;
+
+    const h2Size = document.getElementById("h2Size").value;
+    const h2Color = document.getElementById("h2Color").value;
+
+    if (h1Size) document.getElementById("titulo1").style.fontSize = h1Size;
+    if (h1Color) document.getElementById("titulo1").style.color = h1Color;
+
+    if (h2Size) document.getElementById("titulo2").style.fontSize = h2Size;
+    if (h2Color) document.getElementById("titulo2").style.color = h2Color;
+}
+
+
+// RESET
+function resetar() {
+    location.reload();
+}
+
+</script>
+
+</body>
+</html>

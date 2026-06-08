@@ -1,84 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #eef2f7;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 60px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List</title>
 
-        #tarefa {
-            padding: 8px;
-            width: 250px;
-            font-size: 1em;
-        }
+<style>
 
-        #add {
-            padding: 8px 16px;
-            margin-left: 5px;
-            cursor: pointer;
-        }
+/* ===== FUNDO ===== */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #f5f7fa);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
 
-        #lista {
-            margin-top: 20px;
-            list-style: none;
-            padding: 0;
-            width: 300px;
-        }
-        #lista li {
-            background-color: white;
-            margin-bottom: 5px;
-            padding: 8px;
-            border-radius: 4px;
-            cursor: pointer;
-            border: 1px solid #ccc;
-        }
-        
-        small {
-            margin-top: 10px;
-            color: #555;
-        }
-    </style>
+/* ===== CARD PRINCIPAL ===== */
+.container {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 350px;
+    text-align: center;
+}
+
+/* ===== BOTÃO VOLTAR ===== */
+.voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    background: #1976d2;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.voltar:hover {
+    background: #0d47a1;
+    transform: scale(1.05);
+}
+
+/* ===== INPUT ===== */
+#tarefa {
+    width: 70%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+/* ===== BOTÃO ADD ===== */
+#add {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border: none;
+    background: #4caf50;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: 0.3s;
+}
+
+#add:hover {
+    background: #388e3c;
+}
+
+/* ===== LISTA ===== */
+#lista {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+#lista li {
+    background: #f1f1f1;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#lista li:hover {
+    background: #e0e0e0;
+    transform: scale(1.02);
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+</style>
+
 </head>
+
 <body>
-    <h1>to-Do List</h1>
+
+<!-- BOTÃO VOLTAR -->
+<button class="voltar" onclick="voltar()">⬅ Voltar</button>
+
+<div class="container">
+
+    <h1>To-Do List</h1>
+
     <div>
         <input id="tarefa" placeholder="Digite uma tarefa">
         <button id="add">Adicionar</button>
     </div>
-    <small>Clique em um item para remover</small>
+
     <ul id="lista"></ul>
-  
-    <script>
-        var input = document.getElementById("tarefa")
-        var botao = document.getElementById("add")
-        var lista = document.getElementById("lista")
 
-        botao.addEventListener("click", adicionar)
-        lista.addEventListener("click", remover)
+</div>
 
-        function adicionar() {
-            var texto = input.value.trim()
-            if (texto === "") return
-            var li = document.createElement("li")
-            li.innerText = texto
-            lista.appendChild(li)
-            input.value = ""
-            input.focus()
-        }
+<script>
 
-        function remover(event) {
-            if (event.target.tagName === "LI") {
-                event.target.remove()
-            }
-        }
-    </script>
+function voltar() {
+    window.location.href = "portifolio.html";
+}
+
+var input = document.getElementById("tarefa")
+var botao = document.getElementById("add")
+var lista = document.getElementById("lista")
+
+botao.addEventListener("click", adicionar)
+lista.addEventListener("click", remover)
+
+function adicionar() {
+    var texto = input.value.trim()
+    if (texto === "") return
+
+    var li = document.createElement("li")
+    li.innerText = texto
+
+    lista.appendChild(li)
+
+    input.value = ""
+    input.focus()
+}
+
+function remover(event) {
+    if (event.target.tagName === "LI") {
+        event.target.remove()
+    }
+}
+
+</script>
+
 </body>
 </html>

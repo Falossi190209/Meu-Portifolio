@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel de Mensagens</title>
+</head>
+
+<body>
+
+<div id="area">
+
+<h1 id="titulo">Painel de Mensagens</h1>
+
+<!-- BOTÃO VOLTAR -->
+<button class="voltar" onclick="voltar()">⬅ Voltar</button>
+
+<div id="painel">
+    <p class="msg">Mensagem A</p>
+    <p class="msg">Mensagem B</p>
+    <p class="msg">Mensagem C</p>
+</div>
+
+<button onclick="trocarTitulo()">Trocar Título</button>
+<button onclick="modificarMensagem()">Modificar Uma Mensagem</button>
+<button onclick="mudarCor()">Mudar a cor da Letra</button>
+<button onclick="mudarFundo()">Mudar a cor do Fundo</button>
+<button onclick="mudarFundoMensagem()">Mudar a cor do Fundo das mensagens</button>
+
+</div>
+
+<script>
+
+// VOLTAR
+function voltar() {
+    window.location.href = "portifolio.html"; 
+    // se seu arquivo tiver outro nome, troca aqui
+}
+
+function trocarTitulo() {
+    document.getElementById("titulo").innerText = prompt("Digite um novo Título:")
+    document.getElementById("titulo").style.color = prompt("Digite uma nova cor:")
+}
+
+function modificarMensagem() {
+    let escolher = prompt("Selecione qual mensagem você deseja alterar (1, 2 ou 3):")
+    document.getElementsByClassName("msg")[escolher - 1].innerText =
+    prompt("Digite uma nova mensagem:")
+}
+
+function mudarCor() {
+    let selecionar = prompt("Selecione qual mensagem (1, 2 ou 3):")
+    document.getElementsByClassName("msg")[selecionar - 1].style.color =
+    prompt("Digite a cor:")
+}
+
+function mudarFundo() {
+    document.getElementById("area").style.backgroundColor =
+    prompt("Digite a cor de fundo desejada:")
+}
+
+function mudarFundoMensagem() {
+    document.getElementById("painel").style.backgroundColor =
+    prompt("Digite a cor de fundo desejada:")
+}
+
+</script>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+#area{
+    width:700px;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    text-align:center;
+}
+
+#titulo{
+    color:#1976d2;
+    margin-bottom:20px;
+}
+
+#painel{
+    background:#eef3f8;
+    border-radius:12px;
+    padding:15px;
+    margin:20px auto;
+}
+
+.msg{
+    background:white;
+    padding:12px;
+    margin:10px 0;
+    border-left:5px solid #1976d2;
+    border-radius:8px;
+    box-shadow:0 2px 5px rgba(0,0,0,.08);
+}
+
+button{
+    border:none;
+    border-radius:8px;
+    padding:10px 15px;
+    cursor:pointer;
+    color:white;
+    margin:5px;
+    transition:.3s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+}
+
+.voltar{
+    background:#ff9800;
+}
+
+.voltar:hover{
+    background:#f57c00;
+}
+
+button:nth-of-type(2){
+    background:#1976d2;
+}
+
+button:nth-of-type(3){
+    background:#4caf50;
+}
+
+button:nth-of-type(4){
+    background:#9c27b0;
+}
+
+button:nth-of-type(5){
+    background:#e53935;
+}
+
+button:nth-of-type(6){
+    background:#009688;
+}
+
+</style>
+
+</body>
+</html>
