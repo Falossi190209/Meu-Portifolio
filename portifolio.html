@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Portfólio Bootstrap</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <style>
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: #f8f9fa;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .swiper {
+      width: 100%;
+      max-width: 1000px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #0d6efd;
+    }
+
+    .swiper-pagination-bullet {
+      background: #000;
+      opacity: 0.4;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #0d6efd;
+      opacity: 1;
+    }
+
+    #modalImg {
+      max-height: 400px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+
+    <a class="navbar-brand fw-bold" href="index.html">
+      Meu Portfólio
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menuNavbar">
+
+      <ul class="navbar-nav me-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="portifolio.html">Portfólio</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="contato.html">Contato</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<!-- CONTEÚDO -->
+<main class="container py-5">
+
+  <h2 class="text-center mb-4">Meu Portfólio</h2>
+
+  <!-- CARROSSEL -->
+  <div class="swiper mySwiper">
+
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide">
+        <img src="image/img1.png" data-title="Projeto 1" data-desc="Carrossel feito com Bootstrap">
+      </div>
+
+      <div class="swiper-slide">
+        <img src="image/img2.png" data-title="Projeto 2" data-desc="Projeto Web - TCC">
+      </div>
+
+      <div class="swiper-slide">
+        <img src="image/img3.png" data-title="Projeto 3" data-desc="Responsividade com Bootstrap">
+      </div>
+
+      <div class="swiper-slide">
+        <img src="image/img4.png" data-title="Projeto 4" data-desc="Tela de Perfil com HTML">
+      </div>
+
+      <div class="swiper-slide">
+        <img src="image/img5.png" data-title="Projeto 5" data-desc="To-do list">
+      </div>
+
+      <div class="swiper-slide">
+        <img src="image/img6.png" data-title="Projeto 6" data-desc="Fazedor de tarefas">
+      </div>
+
+      <div class="swiper-slide">
+        <img src="image/img7.png" data-title="Projeto 7" data-desc="Relógio em Tempo real">
+      </div>
+
+      <div class="swiper-slide">
+        <img src="image/img8.png" data-title="Projeto 8" data-desc="Tela de login">
+      </div>
+
+      <div class="swiper-slide">
+        <img src="image/img9.png" data-title="Projeto 9" data-desc="Meu Primeiro Modal">
+      </div>
+
+      <div class="swiper-slide">
+        <img src="image/img10.png" data-title="Projeto 10" data-desc="Página de Pedidos do TCC">
+      </div>
+
+    </div>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+
+  </div>
+
+</main>
+
+<!-- MODAL -->
+<div class="modal fade" id="imgModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle"></h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body text-center">
+        <img id="modalImg" class="img-fluid rounded mb-3">
+        <p id="modalDesc"></p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white py-4 mt-auto">
+
+  <div class="container text-center">
+
+    <h5>Contato</h5>
+
+    <p>Email: joaopedrofalossialves@gmail.com</p>
+    <p>Telefone: (14) 99707-2536</p>
+
+    <div class="d-flex justify-content-center gap-3">
+
+      <a href="https://www.instagram.com/j.falossi/" class="text-white">
+        <i class="bi bi-instagram fs-3"></i>
+      </a>
+
+      <a href="https://github.com/Falossi190209" target="_blank" class="text-white">
+        <i class="bi bi-github fs-3"></i>
+      </a>
+
+      <a href="https://wa.me/5514997072536?text=Olá%20João%20Pedro,%20gostaria%20de%20conversar%20com%20você."
+         target="_blank"
+         class="text-white">
+        <i class="bi bi-whatsapp"></i>
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+
+  const modal = new bootstrap.Modal(document.getElementById("imgModal"));
+
+  document.querySelectorAll(".swiper-slide img").forEach(img => {
+    img.addEventListener("click", () => {
+      document.getElementById("modalImg").src = img.src;
+      document.getElementById("modalTitle").innerText = img.dataset.title;
+      document.getElementById("modalDesc").innerText = img.dataset.desc;
+      modal.show();
+    });
+  });
+</script>
+
+</body>
+</html>
